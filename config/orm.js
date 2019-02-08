@@ -18,8 +18,16 @@ var orm = {
     });
   },
   insertOne: function(tableInput, column, value, cb) {
-    var queryString = "INSERT INTO ?? (??) VALUES (??)";
-    console.log(queryString);
+    // value = "'" + value[0] + "'" + ", " + value[1];
+    var queryString = `INSERT INTO ?? (??) VALUES ('${value[0]}', ${
+      value[1]
+    } )`;
+
+    // console.log(queryString);
+    // column = column[0] + ", " + column[1];
+
+    // console.log(column);
+    // console.log(value);
     connection.query(queryString, [tableInput, column, value], function(
       err,
       result
@@ -31,8 +39,8 @@ var orm = {
       //console.log(result);
     });
   },
-  updateOne: function(tableInput, setToUpdate, whereToUpdate, cb) {
-    var queryString = "UPDATE ?? SET ?? WHERE ??";
+  updateOne: function(tableInput, setToUpdate, whereToUpdate, value, cb) {
+    var queryString = "UPDATE ?? SET ?? WHERE ?? = ?";
     connection.query(
       queryString,
       [tableInput, setToUpdate, whereToUpdate],
