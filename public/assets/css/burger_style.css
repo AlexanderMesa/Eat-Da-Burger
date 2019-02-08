@@ -1,0 +1,8 @@
+body {
+  background-image: url("../img/burger_background.jpeg");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  font-size: 40px;
+  color: white;
+  font-family: "Permanent Marker", cursive;
+}

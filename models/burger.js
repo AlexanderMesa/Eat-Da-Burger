@@ -12,10 +12,17 @@ var burger = {
       cb(res);
     });
   },
-  updateOne: function(setToUpdate, whereToUpdate, value, cb) {
-    orm.updateOne("burgers", setToUpdate, whereToUpdate, value, function(res) {
-      cb(res);
-    });
+  updateOne: function(setToUpdate, newSetValue, whereToUpdate, value, cb) {
+    orm.updateOne(
+      "burgers",
+      setToUpdate,
+      newSetValue,
+      whereToUpdate,
+      value,
+      function(res) {
+        cb(res);
+      }
+    );
   }
 };
 

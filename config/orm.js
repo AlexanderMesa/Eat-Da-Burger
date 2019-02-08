@@ -39,11 +39,18 @@ var orm = {
       //console.log(result);
     });
   },
-  updateOne: function(tableInput, setToUpdate, whereToUpdate, value, cb) {
-    var queryString = "UPDATE ?? SET ?? WHERE ?? = ?";
+  updateOne: function(
+    tableInput,
+    setToUpdate,
+    newSetValue,
+    whereToUpdate,
+    value,
+    cb
+  ) {
+    var queryString = "UPDATE ?? SET ?? = ? WHERE ?? = ?";
     connection.query(
       queryString,
-      [tableInput, setToUpdate, whereToUpdate],
+      [tableInput, setToUpdate, newSetValue, whereToUpdate, value],
       function(err, result) {
         if (err) {
           throw err;
