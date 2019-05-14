@@ -59,6 +59,18 @@ var orm = {
         //console.log(result);
       }
     );
+  },
+  deleteOne: function(tableInput, whereToDelete, value, cb) {
+    var queryString = "DELETE FROM ?? WHERE ?? = ?";
+    connection.query(queryString, [tableInput, whereToDelete, value], function(
+      err,
+      result
+    ) {
+      if (err) {
+        throw err;
+      }
+      cb(result);
+    });
   }
 };
 

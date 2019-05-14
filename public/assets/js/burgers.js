@@ -33,4 +33,14 @@ $(function() {
       location.reload();
     });
   });
+  $(".digest").on("click", function(event) {
+    var id = $(this).data("id");
+    console.log(id);
+    $.ajax("/api/burgers/digest/" + id, {
+      type: "DELETE"
+    }).then(function() {
+      console.log("Digested the burger");
+      location.reload();
+    });
+  });
 });

@@ -23,6 +23,11 @@ var burger = {
         cb(res);
       }
     );
+  },
+  deleteOne: function(whereToDelete, value, cb) {
+    orm.deleteOne("burgers", whereToDelete, value, function(res) {
+      cb(res);
+    });
   }
 };
 
